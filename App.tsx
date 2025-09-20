@@ -30,7 +30,7 @@ const App: React.FC = () => {
     const handleLanguageToggle = () => {
         setIsFading(true);
         setTimeout(() => {
-            setLanguage(prev => (prev === 'en' ? 'ar' : 'en'));
+            setLanguage((prev: 'en' | 'ar') => (prev === 'en' ? 'ar' : 'en'));
             setIsFading(false);
         }, 300);
     };
@@ -52,7 +52,7 @@ const App: React.FC = () => {
                     <header className="mb-8">
                         <div className="animate-float mb-6">
                             <img 
-                                src="/1/princess-coffee-logo.jpg" 
+                                src="./princess-coffee-logo.jpg" 
                                 alt="Princess Coffee Logo" 
                                 className="w-32 h-32 mx-auto rounded-full object-cover shadow-2xl"
                                 style={{border: '3px solid #d4af37'}}
