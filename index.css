@@ -1,3 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-en {
+    font-family: 'Lato', sans-serif;
+}
+.font-en h1, .font-en h2, .font-en h3, .font-en h4, .font-en h5, .font-en h6, .font-en .font-cinzel {
+    font-family: 'Cinzel', serif;
+}
+.font-ar {
+    font-family: 'Tajawal', sans-serif;
+}
+.font-ar .font-cinzel {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 700;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(224, 179, 99, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(224, 179, 99, 0.8);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+.animate-card-entry {
+    animation: fadeInUp 1s ease-out forwards;
+}
+.animate-pulse-glow {
+    animation: pulse 3s ease-in-out infinite;
+}
+
 /* Additional styles for Princess Coffee */
 body {
   margin: 0;
