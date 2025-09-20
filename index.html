@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Princess Coffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .font-en {
+            font-family: 'Lato', sans-serif;
+        }
+        .font-en h1, .font-en h2, .font-en h3, .font-en h4, .font-en h5, .font-en h6, .font-en .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        .font-ar {
+            font-family: 'Tajawal', sans-serif;
+        }
+        .font-ar .font-cinzel {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(224, 179, 99, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 25px rgba(224, 179, 99, 0.8);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .animate-card-entry {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        .animate-pulse-glow {
+            animation: pulse 3s ease-in-out infinite;
+        }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-green': '#2d5a5a',
+              'brand-gold': '#d4af37',
+            },
+            fontFamily: {
+              'cinzel': ['Cinzel', 'serif'],
+              'lato': ['Lato', 'sans-serif'],
+              'tajawal': ['Tajawal', 'sans-serif'],
+            },
+            animation: {
+                'float': 'float 6s ease-in-out infinite',
+                'card-entry': 'fadeInUp 1s ease-out forwards',
+                'pulse-glow': 'pulse 3s ease-in-out infinite',
+            },
+            keyframes: {
+                float: {
+                    '0%, 100%': { transform: 'translateY(0px)' },
+                    '50%': { transform: 'translateY(-8px)' },
+                },
+                fadeInUp: {
+                    'from': { opacity: '0', transform: 'translate3d(0, 40px, 0)' },
+                    'to': { opacity: '1', transform: 'translate3d(0, 0, 0)' },
+                },
+                pulse: {
+                    '0%, 100%': { 'box-shadow': '0 0 15px rgba(224, 179, 99, 0.4)' },
+                    '50%': { 'box-shadow': '0 0 25px rgba(224, 179, 99, 0.8)' },
+                }
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
