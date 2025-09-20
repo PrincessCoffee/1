@@ -36,7 +36,7 @@ const App: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen text-white flex items-center justify-center p-4 overflow-hidden relative font-lato" style={{background: '#000000'}}>
+        <div className="min-h-screen text-white flex items-center justify-center p-4 relative font-lato" style={{background: '#000000'}}>
             <div className="absolute inset-0" style={{background: '#000000'}}></div>
             
             <button
@@ -48,50 +48,57 @@ const App: React.FC = () => {
             </button>
 
             <div style={{ perspective: '1000px' }} className={`w-full max-w-md mx-auto transition-opacity duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
-                <div className="rounded-2xl shadow-2xl p-8 text-center relative z-10 animate-card-entry transition-transform duration-300" style={{background: 'linear-gradient(135deg, #2d5a5a 0%, #1a4040 100%)', border: '2px solid #d4af37', maxWidth: '400px'}}>
+                <div className="rounded-2xl shadow-2xl p-8 text-center relative z-10 animate-card-entry transition-transform duration-300 w-full" style={{background: 'linear-gradient(135deg, #2d5a5a 0%, #1a4040 100%)', border: '2px solid #d4af37'}}>
                     <header className="mb-8">
                         <div className="animate-float mb-6">
                             <img 
-                                src="./princess-coffee-logo.jpg" 
+                                src="/princess-coffee-logo.jpg" 
                                 alt="Princess Coffee Logo" 
-                                className="w-32 h-32 mx-auto rounded-full object-cover shadow-2xl"
+                                className="w-32 h-32 mx-auto rounded-full object-cover shadow-2xl animate-pulse-glow"
                                 style={{border: '3px solid #d4af37'}}
+                                onError={(e) => {
+                                    const target = e.target as HTMLImageElement;
+                                    target.src = '/vite.svg';
+                                }}
                             />
                         </div>
-                        <h1 className="text-4xl font-bold font-cinzel text-white mb-2">
+                        <h1 className="text-3xl md:text-4xl font-bold font-cinzel text-white mb-3 text-shadow">
                             {t.title}
                         </h1>
-                        <p className="text-lg font-cinzel" style={{color: '#d4af37'}}>
+                        <p className="text-base md:text-lg font-cinzel mb-2" style={{color: '#d4af37'}}>
                             {t.subtitle}
                         </p>
                     </header>
 
-                    <main className="space-y-4">
-                        {t.socialLinks.map((link: SocialLink) => (
-                            <SocialLinkButton 
-                                key={link.name} 
-                                href={link.href} 
-                                icon={link.icon} 
-                                text={link.name}
-                            />
-                        ))}
+                    <main className="space-y-4 w-full">
+                        <div className="space-y-3">
+                            {t.socialLinks.map((link: SocialLink) => (
+                                <SocialLinkButton 
+                                    key={link.name} 
+                                    href={link.href} 
+                                    icon={link.icon} 
+                                    text={link.name}
+                                />
+                            ))}
+                        </div>
                         
                         <button
                             onClick={() => setIsMenuOpen(true)}
-                            className="group w-full font-bold py-4 px-6 rounded-lg flex items-center justify-center space-x-3 transition-all duration-300 ease-in-out transform hover:scale-105 mt-4"
+                            className="group w-full font-bold py-4 px-6 rounded-lg flex items-center justify-center space-x-3 transition-all duration-300 ease-in-out transform hover:scale-105 mt-6 animate-pulse-glow"
                             style={{
                                 background: '#d4af37',
                                 color: '#2d5a5a',
-                                border: 'none'
+                                border: 'none',
+                                boxShadow: '0 4px 15px rgba(212, 175, 55, 0.3)'
                             }}
                         >
                             <CoffeeIcon className="w-6 h-6 transition-transform duration-300 group-hover:rotate-12" />
-                            <span className="font-semibold">{t.viewMenu}</span>
+                            <span className="font-semibold text-lg">{t.viewMenu}</span>
                         </button>
                     </main>
                     
-                    <footer className="mt-8 text-center text-sm" style={{color: '#888'}}>
-                        <p>{t.footer}</p>
+                    <footer className="mt-8 text-center text-sm opacity-75" style={{color: '#d4af37'}}>
+                        <p className="font-cinzel">{t.footer}</p>
                     </footer>
                 </div>
             </div>

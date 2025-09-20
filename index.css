@@ -60,8 +60,71 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
+  min-height: 100vh;
+  background: #000000;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
 }
 
 .text-shadow {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Fix for responsive design */
+@media (max-width: 768px) {
+  .rounded-2xl {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .text-3xl {
+    font-size: 1.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rounded-2xl {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .w-32 {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+/* Ensure proper spacing and layout */
+.min-h-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Enhanced animations */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Better text shadows */
+.text-shadow {
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.3s ease;
 }
