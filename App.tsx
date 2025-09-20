@@ -52,7 +52,7 @@ const App: React.FC = () => {
                     <header className="mb-8">
                         <div className="animate-float mb-6">
                             <img 
-                                src="./princess-coffee-logo.jpg" 
+                                src="/1/princess-coffee-logo.jpg" 
                                 alt="Princess Coffee Logo" 
                                 className="w-32 h-32 mx-auto rounded-full object-cover shadow-2xl"
                                 style={{border: '3px solid #d4af37'}}
