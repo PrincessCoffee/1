@@ -18,32 +18,32 @@ const MenuModal: React.FC<MenuModalProps> = ({ isOpen, onClose, menuCategories, 
             onClick={onClose}
         >
             <div
-                className="bg-brand-green/70 backdrop-blur-lg border-2 border-brand-gold/50 rounded-xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto relative animate-card-entry"
+                className="bg-slate-800/95 backdrop-blur-xl border border-slate-600/50 rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md lg:max-w-lg max-h-[85vh] sm:max-h-[90vh] overflow-y-auto relative animate-card-entry"
                 onClick={(e) => e.stopPropagation()}
             >
-                <div className="sticky top-0 bg-brand-green/80 backdrop-blur-sm p-4 border-b-2 border-brand-gold z-10 flex justify-between items-center">
-                    <h2 className="text-3xl font-bold font-cinzel text-brand-gold">{title}</h2>
+                <div className="sticky top-0 bg-slate-800/95 backdrop-blur-sm p-4 sm:p-6 border-b border-slate-600/50 z-10 flex justify-between items-center">
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold font-cinzel text-amber-400">{title}</h2>
                     <button 
                         onClick={onClose}
-                        className="text-brand-gold hover:text-white transition-colors"
+                        className="text-amber-400 hover:text-white transition-colors p-1"
                         aria-label="Close menu"
                     >
-                        <CloseIcon className="w-8 h-8"/>
+                        <CloseIcon className="w-6 h-6 sm:w-8 sm:h-8"/>
                     </button>
                 </div>
                 
-                <div className="p-6">
-                    <div className="space-y-8">
+                <div className="p-4 sm:p-6">
+                    <div className="space-y-6 sm:space-y-8">
                         {menuCategories.map((category) => (
                             <div key={category.title}>
-                                <h3 className="text-2xl font-bold font-cinzel text-brand-gold border-b-2 border-brand-gold/50 pb-2 mb-4">
+                                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold font-cinzel text-amber-400 border-b border-amber-400/30 pb-2 mb-3 sm:mb-4">
                                     {category.title}
                                 </h3>
-                                <ul className="space-y-4">
+                                <ul className="space-y-3 sm:space-y-4">
                                     {category.items.map((item) => (
-                                        <li key={item.name}>
-                                            <h4 className="text-xl font-semibold text-white">{item.name}</h4>
-                                            <p className="text-gray-300 text-sm mt-1">{item.description}</p>
+                                        <li key={item.name} className="bg-slate-700/30 rounded-lg p-3 sm:p-4 border border-slate-600/30">
+                                            <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-1">{item.name}</h4>
+                                            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">{item.description}</p>
                                         </li>
                                     ))}
                                 </ul>
