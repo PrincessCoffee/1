@@ -18,7 +18,13 @@ export default defineConfig(({ mode }) => {
       },
       build: {
         target: 'es2015',
-        assetsDir: 'assets'
+        assetsDir: 'assets',
+        rollupOptions: {
+          output: {
+            format: 'iife',
+            manualChunks: undefined
+          }
+        }
       }
     };
 });
