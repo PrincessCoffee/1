@@ -18,13 +18,20 @@ export default defineConfig(({ mode }) => {
       },
       build: {
         assetsDir: 'assets',
+        target: 'es2015',
         rollupOptions: {
           output: {
             manualChunks: undefined,
-            assetFileNames: 'assets/[name].[hash][extname]',
-            chunkFileNames: 'assets/[name].[hash].js',
-            entryFileNames: 'assets/[name].[hash].js'
+            format: 'es',
+            assetFileNames: 'assets/[name]-[hash][extname]',
+            chunkFileNames: 'assets/[name]-[hash].js',
+            entryFileNames: 'assets/[name]-[hash].js'
           }
+        }
+      },
+      server: {
+        headers: {
+          'Content-Type': 'application/javascript; charset=utf-8'
         }
       }
     };
