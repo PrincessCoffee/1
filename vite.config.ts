@@ -19,10 +19,15 @@ export default defineConfig(({ mode }) => {
       build: {
         target: 'es2015',
         assetsDir: 'assets',
+        outDir: 'dist',
+        emptyOutDir: true,
         rollupOptions: {
           output: {
             format: 'iife',
-            manualChunks: undefined
+            manualChunks: undefined,
+            entryFileNames: 'assets/[name].js',
+            chunkFileNames: 'assets/[name].js',
+            assetFileNames: 'assets/[name].[ext]'
           }
         }
       }

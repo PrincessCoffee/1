@@ -33,9 +33,24 @@ jobs:
       - name: Create .nojekyll file
         run: touch dist/.nojekyll
 
+      - name: Create web.config for GitHub Pages
+        run: |
+          cat > dist/web.config << 'EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <configuration>
+            <system.webServer>
+              <staticContent>
+                <mimeMap fileExtension=".js" mimeType="application/javascript" />
+                <mimeMap fileExtension=".css" mimeType="text/css" />
+              </staticContent>
+            </system.webServer>
+          </configuration>
+          EOF
+
       - name: Deploy to GitHub Pages 🚀
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           force_orphan: true
+          cname: false
